@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * SMS Notify for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * You may not sell, sub-license, rent or lease
+ * any portion of the Software or Documentation to anyone.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   MagentoFarsi
+ * @package    MagentoFarsi_SMSNotifyForMagento
+ * @copyright  Copyright (c) 2013-1392 Magento-Farsi.com
+ * @contacts   support@magento-farsi.com
+ */ 
+-->
+<config>
+    <modules>
+        <MagentoFarsi_SMSNotifyForMagento>
+            <active>true</active>
+            <codePool>community</codePool>
+        </MagentoFarsi_SMSNotifyForMagento>
+        <depends>
+            <Mage_Core />
+            <Mage_Sales />
+        </depends>
+    </modules>
+</config>

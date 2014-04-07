@@ -1,0 +1,113 @@
+ /**
+ * SMS Notify for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * You may not sell, sub-license, rent or lease
+ * any portion of the Software or Documentation to anyone.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   MagentoFarsi
+ * @package    MagentoFarsi_SMSNotifyForMagento
+ * @copyright  Copyright (c) 2013-1392 Magento-Farsi.com
+ * @contacts   support@magento-farsi.com
+ */ 
+ 
+/** SYSTEM CONFIGURATION FILTER ============================================ */ 
+ 
+table.border { width:100%; background:#fff; border-collapse:collapse; }
+table.border td { padding:0 3px; vertical-align:middle; border:1px solid #eee; }
+table.border td.last { text-align:left; width:36px; }
+table.border td.first { text-align:left; width:40px; }
+	
+span.prefix { font-weight:bold; color:#888; }
+span.value { font-weight:bold; font-weight: bold; display: block; width: 100%; cursor: pointer; }
+span.value:hover { background: #e7efef; }
+
+.numberfilters-dialog-wrapper { position:relative; }
+.numberfilters-dialog { position:absolute; right:0; top:0; margin-right:-120px; margin-top:-60px; }
+.numberfilters-dialog-inner { background:#e7efef; border:1px solid #dadada; }
+.numberfilters-dialog .entry-edit-head { margin:0 20px; }
+.numberfilters-dialog .entry-edit-head a { text-decoration:none; }
+.numberfilters-dialog .entry-edit-head a.close-button { display:block; float:left; width:19px; height:18px; background:url(images/entry_edit_head_arrow_x.gif) no-repeat right top; }
+.numberfilters-dialog-inner { margin:0 20px 20px; width:610px; opacity:1.0; }
+.numberfilters-dialog-inner select { width:33px !important; margin:0 0 10px 5px; }
+.numberfilters-dialog-inner input.radio { margin-left:5px; }
+.numberfilters-dialog-inner input.radio-right { margin-right:10px; }
+.numberfilters-dialog-inner ul li { margin-bottom:10px; }
+.empty-filter .numberfilters-table-wrapper { border:0; margin:10px 0 0; }
+.numberfilters-table-wrapper { margin:10px 0px 5px; border:1px solid; width:280px; border-color: #aaa #c8c8c8 #c8c8c8 #aaa; }
+
+button.add-button { padding:2px 15px; }
+option.has-filter { background:#ccc; }
+button.delete span { background-position-x:right 3px; }
+
+/** SEND SMS =============================================================== */
+
+div#sendsms_fieldset td.value { width:280px; }
+
+#table-numbers { width:100%; border-color:#aaa #c8c8c8 #c8c8c8 #aaa; border-width:1px; border-style:solid; }
+#table-numbers.empty-table { display:none; }
+#table-numbers td { background:#fff; }
+#table-numbers td.last { width:20px; }
+
+#customer_numbers { margin-bottom:2px; }
+
+#search_autocomplete { background: #fff; border: 1px solid #aaa; width: 278px !important; }
+#search_autocomplete.empty-list { display:none; }
+#search_autocomplete ul li { cursor: pointer; font-weight: bold; padding: 0px 5px; font-size: 11px; border-bottom:1px dotted #eee; }
+#search_autocomplete ul li.not-allowed { font-weight: normal; font-style: italic; color: #aaa; }
+#search_autocomplete ul li:hover { background:#eee; }
+#search_autocomplete ul li.not-allowed:hover { backgound:#fff; }
+
+/** TextArea ================================================================== */
+
+.button-bar { margin:0; }
+.button-bar a { margin:5px 5px 5px 0; text-decoration:none; border-left:1px solid #ea7601; padding-left:5px; }
+.button-bar a.last { border:0; }
+.button-bar a:hover { text-decoration:underline; }
+.button-bar a span { display:none; }
+
+/** System Config ============================================================= */
+
+.smsnotify-section  span { background: url(images/ico_mobil.png) no-repeat right 1px top 4px !important; }
+a.smsnotify-section.active span { background: #fff url(images/ico_mobil.png) no-repeat right 1px top 4px !important; }
+
+#smsnotify_new_order td.value,
+#smsnotify_new_invoice td.value,
+#smsnotify_new_shipment td.value { width:600px; }
+#smsnotify_new_order td.value textarea,
+#smsnotify_new_invoice td.value textarea,
+#smsnotify_new_shipment td.value textarea  { width:590px; }
+
+#smsnotify_new_order .button-bar a.invoice,
+#smsnotify_new_order .button-bar a.shipment,
+#smsnotify_new_invoice .button-bar a.shipment,
+#smsnotify_new_shipment .button-bar a.invoice,
+#smsnotify_new_shipment .button-bar a.amount { display:none; }
+
+/** Credit info config ========================================================= */
+
+span.smscredit { display:block; width:290px; border-top:1px solid #ccc; margin-top:10px; padding-top:5px; }
+span.exhaus { display:block; width:290px; border-bottom:1px solid #ccc; margin-bottom:10px; padding-bottom:5px; }
+#smspurchasebutton { margin-right:10px; }
+div.error { padding:0 5px; }
+
+/** History ===================================================================== */
+
+.menu-item { background:#6f8992; color:white; cursor:pointer; float:right; margin-right:5px; width:80px; border:1px solid #ddd; position:relative; top:1px; text-align:center; }
+.menu-item.active { background:#fafafa; color:black; border-bottom:0; top:2px; }
+.menu-item.first { margin:0; }
+
+#history-sms textarea { height:6em; width:99%; }
+#history-sms .button-bar { display:none; }
+
+.history-form { border:1px solid #ddd; padding:10px; /*background:#fcfac9*/ }
+
+.status-field-row { margin-bottom:15px; }
+
+.note-list li.mobil { background:url(images/ico_mobil.png) no-repeat 100% 4px; }

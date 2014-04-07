@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * SMS Notify for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * You may not sell, sub-license, rent or lease
+ * any portion of the Software or Documentation to anyone.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   MagentoFarsi
+ * @package    MagentoFarsi_SMSNotifyForMagento
+ * @copyright  Copyright (c) 2013-1392 Magento-Farsi.com
+ * @contacts   support@magento-farsi.com
+ */ 
+-->
+<layout version="0.1.0">
+<!--
+Default layout, loads most of the pages
+-->
+
+    <smsnotify_adminhtml_index>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="smsnotify/adminhtml_send" name="smsnotify" >
+                <block type="smsnotify/adminhtml_send_form" name="form" />
+            </block>
+        </reference>
+    </smsnotify_adminhtml_index>
+    
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>smsnotify/numberfilters.js</script></action>
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+    </adminhtml_system_config_edit>
+    
+    <adminhtml_sales_order_view>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="order_history">
+            <action method="setTemplate"><template>smsnotify/order/view/history.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_view>
+    
+    <adminhtml_sales_order_invoice_view>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="order_comments">
+            <action method="setTemplate"><template>smsnotify/order/comments/view.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_invoice_view>
+    
+    <adminhtml_sales_order_shipment_view>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="order_comments">
+            <action method="setTemplate"><template>smsnotify/order/comments/view.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_shipment_view>
+    
+    <adminhtml_sales_order_addcomment>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="order_history">
+            <action method="setTemplate"><template>smsnotify/order/view/history.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_addcomment>
+        
+    <adminhtml_sales_order_invoice_addcomment>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="order_comments">
+            <action method="setTemplate"><template>smsnotify/order/comments/view.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_invoice_addcomment>
+    
+    <adminhtml_sales_order_shipment_addcomment>
+        <reference name="head">
+            <action method="addCss"><name>smsnotify.css</name></action>
+        </reference>
+        <reference name="order_comments">
+            <action method="setTemplate"><template>smsnotify/order/comments/view.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_shipment_addcomment>
+    
+</layout>

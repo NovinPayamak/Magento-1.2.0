@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * SMS Notify for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * You may not sell, sub-license, rent or lease
+ * any portion of the Software or Documentation to anyone.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   MagentoFarsi
+ * @package    MagentoFarsi_SMSNotifyForMagento
+ * @copyright  Copyright (c) 2013-1392 Magento-Farsi.com
+ * @contacts   support@magento-farsi.com
+ */
+-->
+<config>
+	<tabs>
+        <MagentoFarsi_Extensions>
+            <label>مجنتو فارسی - افزونه‌ها</label>
+            <sort_order>100</sort_order>
+        </MagentoFarsi_Extensions>
+    </tabs>
+    <sections>
+        <smsnotify translate="label" module="smsnotify">
+            <label>SMS Notify for Magento</label>
+            <tab>MagentoFarsi_Extensions</tab>
+            <class>smsnotify-section</class>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <credentials translate="label comment" module="smsnotify">
+                    <label>Gateway Credentials</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <gateway translate="label comment" module="smsnotify">
+                            <label>Gateway</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_gateway</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </gateway>
+                        <username translate="label comment" module="smsnotify">
+                            <label>Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </username>
+                        <password translate="label comment" module="smsnotify">
+                            <label>Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </password>
+                        <fromnumber translate="label comment" module="smsnotify">
+                            <label>From Number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </fromnumber>
+                        <account_info translate="label comment" module="smsnotify">
+                            <label></label>
+                            <frontend_type>accountinfo</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </account_info>
+                    </fields>
+                </credentials>
+                <general translate="label comment" module="smsnotify">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                       <primary_admin translate="label comment" module="smsnotify">
+                            <label>Primary admin's number</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits validate-length maximum-length-14</validate>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       </primary_admin>
+                       <secondary_admin translate="label comment" module="smsnotify">
+                            <label>Secondary admin's number</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-digits validate-length maximum-length-14</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       </secondary_admin>
+                       <local_country translate="label comment" module="smsnotify">
+                            <label>Local country</label>
+                            <comment>The number in parentheses indicates the dial prefix code of the country.</comment>
+                            <frontend_type>selectdynamic</frontend_type>
+                            <frontend_class>country-codes</frontend_class>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       </local_country>
+                       <min_length_with_prefix translate="label comment" module="smsnotify">
+                            <label>Add local country code to numbers with digits less than or equal to</label>
+                            <comment>The customers can insert the phone number with dial prefix or without it to their address. This settings determines whether system have to add dial prefix automatically or not. If you choose for example 9 then there will be add dial prefix of your local country to all numbers with have 9 digits or less. The numbers with 10 digits or more will remain as they are.</comment>
+                            <frontend_type>selectdynamic</frontend_type>
+                            <frontend_class>max-number-for-prefix</frontend_class>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_length_with_prefix>
+                        <used_addresses translate="label comment" module="smsnotify">
+                            <label>Customer's phone numbers primarily get from</label>
+                            <comment>If you choose billing address then SMS will be sent to numbers from a billing address and if phone number was not present there then would be used phone numbers from a shipping address and vice versa. If customer's phone number was not found then SMS would not be sent.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_addresses</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </used_addresses>
+                        <log translate="label comment" module="smsnotify">
+                            <label>Log SMS</label>
+                            <comment>SMS messages would be writen to file 'var/log/smsnotify.log'. Note sending will not be logged when the Magento log is disabled.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_log</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </log>
+                    </fields>
+                </general>
+                <country_filter translate="label comment" module="smsnotify">
+                    <label>Country Filters</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>35</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <type translate="label comment" module="smsnotify">
+                            <label>Allow send message to</label>
+                            <comment>Countries come from customer's address. Local country you choose above.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_countryFilter</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </type>
+                        <specificcountry translate="label comment" module="smsnotify">
+                            <label>Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>26</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><type>specific</type></depends>
+                        </specificcountry>
+                    </fields>
+                </country_filter>
+                <filter translate="label comment" module="smsnotify">
+                    <label>Number Filters</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <exclude translate="label comment" module="smsnotify">
+                            <label>Exclude numbers</label>
+                            <comment>Here you can select number patterns/range which you do not wish send SMS to. If you want to send SMS to any number leave this table empty.</comment>
+                            <frontend_type>numberfilters</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </exclude>
+                        <include translate="label comment" module="smsnotify">
+                            <label>Include numbers</label>
+                            <comment>Here you can add the exceptions from "Exclude numbers" field.</comment>
+                            <frontend_type>numberfilters</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </include>
+                    </fields>
+                </filter>
+                <new_order translate="label comment" module="smsnotify">
+                    <label>New Order</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment" module="smsnotify">
+                            <label>Notify when new order is placed</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <to_customer translate="label comment" module="smsnotify">
+                            <label>Notify customer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </to_customer>
+                        <to_admin translate="label comment" module="smsnotify">
+                            <label>Notify admin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_sendToAdmin</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </to_admin>
+                        <sms_text translate="label comment" module="smsnotify">
+                            <label>SMS text</label>
+                            <frontend_type>smstextarea</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </sms_text>
+                    </fields>
+                </new_order>
+                <new_invoice translate="label comment" module="smsnotify">
+                    <label>New Invoice</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment" module="smsnotify">
+                            <label>Notify when new invoice is created</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <to_customer translate="label comment" module="smsnotify">
+                            <label>Notify customer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </to_customer>
+                        <to_admin translate="label comment" module="smsnotify">
+                            <label>Notify admin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_sendToAdmin</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </to_admin>
+                        <sms_text translate="label comment" module="smsnotify">
+                            <label>SMS text</label>
+                            <frontend_type>smstextarea</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </sms_text>
+                    </fields>
+                </new_invoice>
+                <new_shipment translate="label comment" module="smsnotify">
+                    <label>New Shipment</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment" module="smsnotify">
+                            <label>Notify when new shipment is created</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <to_customer translate="label comment" module="smsnotify">
+                            <label>Notify customer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </to_customer>
+                        <to_admin translate="label comment" module="smsnotify">
+                            <label>Notify admin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>smsnotify/system_config_source_sendToAdmin</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </to_admin>
+                        <sms_text translate="label comment" module="smsnotify">
+                            <label>SMS text</label>
+                            <frontend_type>smstextarea</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </sms_text>
+                    </fields>
+                </new_shipment>
+            </groups>
+        </smsnotify>
+   </sections>
+</config>

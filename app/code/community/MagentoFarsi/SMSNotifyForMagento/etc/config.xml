@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * SMS Notify for Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * You may not sell, sub-license, rent or lease
+ * any portion of the Software or Documentation to anyone.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @category   MagentoFarsi
+ * @package    MagentoFarsi_SMSNotifyForMagento
+ * @copyright  Copyright (c) 2013-1392 Magento-Farsi.com
+ * @contacts   support@magento-farsi.com
+ */
+-->
+<config>
+	<modules>
+		<MagentoFarsi_SMSNotifyForMagento>
+			<version>1.2.0</version>
+		</MagentoFarsi_SMSNotifyForMagento>
+	</modules>
+	<admin>
+        <routers>
+            <smsnotify>
+                <use>admin</use>
+                <args>
+                    <module>MagentoFarsi_SMSNotifyForMagento</module>
+                    <frontName>smsnotify</frontName>
+                </args>
+            </smsnotify>
+        </routers>
+    </admin>
+	<global>
+		<blocks>
+			<smsnotify>
+				<class>MagentoFarsi_SMSNotifyForMagento_Block</class>
+			</smsnotify>
+		</blocks>
+		<helpers>
+			<smsnotify>
+                <class>MagentoFarsi_SMSNotifyForMagento_Helper</class>
+            </smsnotify>
+		</helpers>
+		<models>
+			<smsnotify>
+                <class>MagentoFarsi_SMSNotifyForMagento_Model</class>
+            </smsnotify>
+		</models>
+		<events>
+            <model_save_before>
+                <observers>
+                    <smsnotify>
+                        <class>smsnotify/observer</class>
+                        <method>beforeSaveAbstract</method>
+                    </smsnotify>
+                </observers>
+            </model_save_before>
+            <model_save_after>
+                <observers>
+                    <smsnotify>
+                        <class>smsnotify/observer</class>
+                        <method>afterSaveAbstract</method>
+                    </smsnotify>
+                </observers>
+            </model_save_after>
+            <smsnotifyformagento_error>
+                <observers>
+                    <smsnotify>
+                        <class>smsnotify/sms_observer</class>
+                        <type>singleton</type>
+                        <method>onError</method>  
+                    </smsnotify>
+                </observers>
+            </smsnotifyformagento_error>
+            <smsnotifyformagento_before_sending>
+                <observers>
+                    <smsnotify>
+                        <class>smsnotify/sms_observer</class>
+                        <type>singleton</type>
+                        <method>beforeSending</method>  
+                    </smsnotify>
+                </observers>
+            </smsnotifyformagento_before_sending>
+            <smsnotifyformagento_after_sending>
+                <observers>
+                    <smsnotify>
+                        <class>smsnotify/sms_observer</class>
+                        <type>singleton</type>
+                        <method>afterSending</method>  
+                    </smsnotify>
+                </observers>
+            </smsnotifyformagento_after_sending>
+        </events>
+	</global>
+	<adminhtml>
+        <layout>
+            <updates>
+                <smsnotify>
+                    <file>smsnotify.xml</file>
+                </smsnotify>
+            </updates>
+        </layout>
+		<translate>
+            <modules>
+                <MagentoFarsi_SMSNotifyForMagento>
+                    <files>
+                        <default>MagentoFarsi_SMSNotifyForMagento.csv</default>
+                    </files>
+                </MagentoFarsi_SMSNotifyForMagento>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <smsnotify translate="title" module="smsnotify">
+                                    <title>SMS Notify for Magento</title>
+                                    <children>
+                                        <send translate="title" module="smsnotify">
+                                            <title>Sending SMS</title>   
+                                        </send>
+                                    </children>
+                                </smsnotify>
+                                <config>
+                                    <children>
+                                        <smsnotify translate="title" module="smsnotify">
+                                            <title>SMS Notify for Magento</title>
+                                        </smsnotify>
+                                    </children>
+                                </config>   
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+	<default>
+	   <smsnotify>
+	       <credentials>
+	           <gateway>0</gateway>
+	       </credentials>
+	       <general>
+	           <min_length_with_prefix>9</min_length_with_prefix>
+	           <used_addresses>billing</used_addresses>
+	           <log>0</log>
+	       </general>
+	       <country_filter>
+	           <type>everywhere</type>
+	       </country_filter>
+	       <new_order>
+	           <enabled>0</enabled>
+	           <to_customer>1</to_customer>
+	           <to_admin>1</to_admin>
+	           <text></text>
+	       </new_order>
+	       <new_invoice>
+               <enabled>0</enabled>
+               <to_customer>1</to_customer>
+               <to_admin>1</to_admin>
+               <text></text>
+           </new_invoice>
+           <new_shipment>
+               <enabled>0</enabled>
+               <to_customer>1</to_customer>
+               <to_admin>1</to_admin>
+               <text></text>
+           </new_shipment>
+	   </smsnotify>
+	   <translate>
+            <modules>
+                <MagentoFarsi_SMSNotifyForMagento>
+                    <files>
+                        <default>MagentoFarsi_SMSNotifyForMagento.csv</default>
+                    </files>
+                </MagentoFarsi_SMSNotifyForMagento>
+            </modules>
+        </translate>
+	</default>
+</config>
